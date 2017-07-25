@@ -103,7 +103,7 @@ describe('comparison two iPhones scenario', function() {
 
 
   // routine functions
-  
+
   function pathToMobiles() {
     var element = browser.element(by.linkText("Каталог"));
          element.click();
@@ -133,6 +133,7 @@ describe('comparison two iPhones scenario', function() {
     browser.sleep(2000);
 
     var element = browser.element(by.cssContainingText('span', model));
+
     browser.wait(EC.presenceOf(element), 8000).then(()=> {
         browser.executeScript("arguments[0].scrollIntoView();", element);
         return element.click();
@@ -147,8 +148,7 @@ describe('comparison two iPhones scenario', function() {
     });
 
     var panel = browser.$('.compare-button__sub.compare-button__sub_main');
-      return panel.getText()
-        .then((text)=> {
+      return panel.getText().then((text)=> {
           console.log("panel text: ", text);
           return text;
       });
